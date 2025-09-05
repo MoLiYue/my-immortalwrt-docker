@@ -1,0 +1,13 @@
+#!/bin/bash
+
+docker build -t immortalwrt-build .
+
+docker run --rm -it --name immortalwrt-build -v $(pwd)/output:/home/builder/immortalwrt/bin --user $(id -u):$(id -g) immortalwrt-build
+
+make menuconfig  # 选择要编译的目标
+make -j$(nproc)  # 开始编译
+
+
+
+
+

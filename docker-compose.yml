@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  immortalwrt-build:
+    image: immortalwrt-build
+    container_name: immortalwrt-build
+    user: "${UID}:${GID}"
+    volumes:
+      - ./output:/home/builder/immortalwrt/bin
+      - ./.config:/home/builder/immortalwrt/.config
+    stdin_open: true   # 保持标准输入打开，便于交互式使用
+    tty: true          # 分配伪终端
