@@ -1,4 +1,4 @@
 export UID=$(id -u)
 export GID=$(id -g)
 
-docker build -t immortalwrt-build .
+docker build --no-cache -t immortalwrt-build .
